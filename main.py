@@ -61,8 +61,8 @@ speed_y = 3
 
 pg.font.init()
 font1=pg.font.SysFont('verdana',60,)
-win_ing = font1.render('You win!',True,(200,0,0))
-los_ing = font1.render('You lose!',True,(225,0,0))
+win_ing = font1.render('pl2 lose!',True,(200,0,0))
+los_ing = font1.render('pl1 lose!',True,(225,0,0))
 
 run = True
 while run:
@@ -91,7 +91,11 @@ while run:
         speed_x *=-1
 
     if ball.rect.x < plat.rect.x + 20:
-        window.blit(los_ing,(150,150))
+        window.blit(los_ing,(350,200))
+        run = False
+    if ball.rect.x > plat2.rect.x + 20:
+        window.blit(win_ing,(350,200))
+        run = False 
         
     
     ball.rect.x += speed_x
